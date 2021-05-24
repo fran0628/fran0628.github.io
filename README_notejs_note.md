@@ -1,4 +1,4 @@
-# note.js----------note
+# node.js----------note
 
 專有名詞:
 call stack(一種資料結構:堆疊(後進先出) /stack webapis / callback task queue(佇列) 
