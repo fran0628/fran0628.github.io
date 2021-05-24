@@ -10,7 +10,7 @@ Untracked files:
 
 0523 nodejs影片NOTE--------我是分隔線
 
-# note.js----------note
+# node.js----------note
 
 專有名詞:
 call stack(一種資料結構:堆疊(後進先出) /stack webapis / callback task queue(佇列) 
