@@ -4,39 +4,25 @@
 ### 第二次測驗小筆記 ###
 
 何謂效能好壞? 並無絕對   
-
 改善網站效能你需要先了解現況!(對方需求是甚麼、目標要甚麼樣子),   
-
 優化前的第一步：了解針對效能定義、基準點在哪,我們可以按照情境去優化   
-
 同步與非同步執行速度誰快? 同步比較快(平均來說,但不一定歐!)   
-
 php靠很多Process來做   
-
 讀檔案: 同步的nodejs比較快   
-
 溝通工作有代價   
-
 代價為是否阻塞下一行程式碼   
 
 
 ## 甚麼是XHR?   
 
-
 XMLHttpRquest(瀏覽器物件) 發請求,三個參數 Method 網址列 同步/非同步:True/False    
 ```javascript
 function reqListener () {   
-
   console.log(this.responseText);   
-
 }   
-
 var oReq = new XMLHttpRequest();   
-
 oReq.addEventListener("load", reqListener);   
-
 oReq.open("GET", "http://www.example.org/example.txt");   
-
 oReq.send();   
 ```
 (或是也可以用.onload)   
@@ -44,18 +30,15 @@ oReq.send();
 ## 為什麼要有同源政策(CORS)?   
 
 主要安全性考量,例如來自於不同網域（domain）、通訊協定（protocol）或通訊埠（port）的資源時，會建立一個跨來源 HTTP 請求（cross-origin HTTP request）。   
-[CORS](https://developer.mozilla.org/zh-TW/docs/Web/HTTP/CORS)
+參考資料:
+-[CORS跨來源資源共用](https://developer.mozilla.org/zh-TW/docs/Web/HTTP/CORS)
 
 其他:   
 
 Jquery fetch 都是非同步 (底層:就是XMLHttpRquest)   
-
 但也可以用同步(但會阻塞)   
-
 需要長時間工作的包裝成非同步,牽扯到io讀取檔案或網路請求對cpu來說都是比較慢的事情   
-
 可能會阻塞(同步請求會造成阻塞)   
-
 ./adapters/xhr也是用XMLHttpRequest   
 
 ---------------------------------------------------   
@@ -116,8 +99,9 @@ console.log(response);
 .catch(function (error) {   
 console.log(error);   
 });   
-```   
-[Axios](https://codertw.com/%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80/691120/)
+```  
+參考資料: 
+-[Axios的使用說明](https://codertw.com/%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80/691120/)
  
 
 ---------------------------------------------------   
@@ -146,11 +130,12 @@ await 也能夠把 Promise 回傳的值接起來，
 ((async () => {   
     const { data } = await axios.get('API_URL');   
     console.log(data);   
-})();   
+})();
+```      
 使用 async/await 呼叫 API 或是其他非同步方法，   
 不但可以避免 Callback Hell，   
 比起 Promise 更增加了程式可讀性   
-```   
+
 ---------------------------------------------------
 
 補充:   
