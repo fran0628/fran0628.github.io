@@ -128,10 +128,16 @@ await 也能夠把 Promise 回傳的值接起來，
 比起 Promise 更增加了程式可讀性
 
 ===================================================
-補充:
-何謂php & javascript物件導向
-class -> instance 
-obj = new class 拿模子做出個吐司 
-prototype原型本身就是個物件 
-複製出另一個物件
+補充:   
+
+何謂php & javascript物件導向   
+
+class -> instance    
+
+obj = new class 拿模子做出個吐司    
+
+prototype原型本身就是個物件    
+
+複製出另一個物件   
+
 
