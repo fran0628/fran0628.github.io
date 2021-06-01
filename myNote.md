@@ -1,48 +1,73 @@
 5/29~5/30 Node.js_Note
 
 ---------------------------------------------------
-#第二次測驗小筆記
+### 第二次測驗小筆記 ###
 
-何謂效能好壞? 並無絕對
-改善網站效能你需要先了解現況!(對方需求是甚麼、目標要甚麼樣子),
-優化前的第一步：了解針對效能定義、基準點在哪,我們可以按照情境去優化
+何謂效能好壞? 並無絕對   
 
-同步與非同步執行速度誰快? 同步比較快(平均來說,但不一定歐!)
-php靠很多Process來做
-讀檔案: 同步的nodejs比較快 
-溝通工作有代價 
-代價為是否阻塞下一行程式碼
+改善網站效能你需要先了解現況!(對方需求是甚麼、目標要甚麼樣子),   
 
-甚麼是XHR?
-XMLHttpRquest(瀏覽器物件) 發請求,三個參數 Method 網址列 同步/非同步:True/False
-function reqListener () {
-  console.log(this.responseText);
-}
-var oReq = new XMLHttpRequest();
-oReq.addEventListener("load", reqListener);
-oReq.open("GET", "http://www.example.org/example.txt");
-oReq.send();
-(或是也可以用.onload)
+優化前的第一步：了解針對效能定義、基準點在哪,我們可以按照情境去優化   
 
-為什麼要有同源政策(CORS)?
-主要安全性考量,例如來自於不同網域（domain）、通訊協定（protocol）或通訊埠（port）的資源時，
-會建立一個跨來源 HTTP 請求（cross-origin HTTP request）。
+同步與非同步執行速度誰快? 同步比較快(平均來說,但不一定歐!)   
+
+php靠很多Process來做   
+
+讀檔案: 同步的nodejs比較快   
+
+溝通工作有代價   
+
+代價為是否阻塞下一行程式碼   
+
+
+甚麼是XHR?   
+
+XMLHttpRquest(瀏覽器物件) 發請求,三個參數 Method 網址列 同步/非同步:True/False   
+
+function reqListener () {   
+
+  console.log(this.responseText);   
+
+}   
+
+var oReq = new XMLHttpRequest();   
+
+oReq.addEventListener("load", reqListener);   
+
+oReq.open("GET", "http://www.example.org/example.txt");   
+
+oReq.send();   
+
+(或是也可以用.onload)   
+
+為什麼要有同源政策(CORS)?   
+
+主要安全性考量,例如來自於不同網域（domain）、通訊協定（protocol）或通訊埠（port）的資源時，會建立一個跨來源 HTTP 請求（cross-origin HTTP request）。   
+
 參考文章:
-https://developer.mozilla.org/zh-TW/docs/Web/HTTP/CORS
+https://developer.mozilla.org/zh-TW/docs/Web/HTTP/CORS   
 
-其他:
-Jquery fetch 都是非同步
-底層:就是XMLHttpRquest 
-但也可以用同步(但會阻塞)
 
-需要長時間工作的包裝成非同步
-牽扯到io讀取檔案或網路請求對cpu來說都是比較慢的事情
-可能會阻塞
-(同步請求會造成阻塞)
-./adapters/xhr也是用XMLHttpRequest
----------------------------------------------------
+其他:   
 
-callback: 
+Jquery fetch 都是非同步   
+
+底層:就是XMLHttpRquest   
+
+但也可以用同步(但會阻塞)   
+
+
+需要長時間工作的包裝成非同步   
+
+牽扯到io讀取檔案或網路請求對cpu來說都是比較慢的事情   
+
+可能會阻塞(同步請求會造成阻塞)   
+
+./adapters/xhr也是用XMLHttpRequest   
+
+---------------------------------------------------   
+
+# callback: 
 延續傳遞風格(Continuation-passing style, CPS)
 基本上一個程式語言要具有高階函式(High Order Function)的特性才能使用CPS風格，
 也就是可以把某個函式當作另一函式的傳入參數，也可以回傳函式。除了JavaScript語言外，
@@ -54,7 +79,7 @@ callback:
 執行I/O: 監聽網路、資料庫查詢或讀寫外部資源
 訂閱事件
 
-回調地獄(Callback Hell)
+# 回調地獄(Callback Hell)
 複雜的情況是在於CPS風格使用callback(回調)來移往下一個函式執行，
 當你開始撰寫一個接著一個執行的流程，
 也就是一個特定工作的函式呼叫後要接下一個特定工作的函式時，
@@ -67,7 +92,7 @@ callback(回調)其實有Closure(閉包)結構的特性，可以獲取到func中
 
 ---------------------------------------------------
 
-axios:
+# axios:
 Axios是個基於promise的HTTP,可以用在browser & node.js
 從瀏覽器創建XMLHttpRequests
 可轉換json資料格式
@@ -97,9 +122,11 @@ console.log(error);
 });
 
 參考文章:
-https://codertw.com/%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80/691120/
----------------------------------------------------
-Promise: 
+https://codertw.com/%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80/691120/   
+
+---------------------------------------------------   
+
+# Promise: 
 pending/resolve/rejected
 Promise最大的好處是在非同步執行的流程中，有物件就可以串接.then.catch
 把執行代碼和處理結果的代碼清晰地分離
@@ -115,7 +142,7 @@ Promise最大的好處是在非同步執行的流程中，有物件就可以串�
 
 ---------------------------------------------------
 
-Async/await:
+# Async/await:
 await 也能夠把 Promise 回傳的值接起來，
 通常我們在呼叫 API（例如執行 fetch、axios）
 搭配 axios 更可以這樣使用：
