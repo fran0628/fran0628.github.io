@@ -1,7 +1,7 @@
 5/29~5/30 Node.js_Note
 
 ---------------------------------------------------
-#第二次測驗小筆記: 
+#第二次測驗小筆記
 
 何謂效能好壞? 並無絕對
 改善網站效能你需要先了解現況!(對方需求是甚麼、目標要甚麼樣子),
@@ -81,7 +81,7 @@ console.log(response);
 console.log(error);
 });
 
->>或是也可寫成下面形式
+或是也可寫成下面形式
 axios.get('URL', {
 params: {
 	 response: "json",
@@ -127,17 +127,12 @@ await 也能夠把 Promise 回傳的值接起來，
 不但可以避免 Callback Hell，
 比起 Promise 更增加了程式可讀性
 
-===================================================
+---------------------------------------------------
+
 補充:   
-
 何謂php & javascript物件導向   
-
-class -> instance    
-
-obj = new class 拿模子做出個吐司    
-
-prototype原型本身就是個物件    
-
-複製出另一個物件   
+class -> instance   
+obj = new class 拿模子做出個吐司   
+prototype原型本身就是個物件   
 
 
