@@ -50,16 +50,11 @@ https://developer.mozilla.org/zh-TW/docs/Web/HTTP/CORS
 
 其他:   
 
-Jquery fetch 都是非同步   
-
-底層:就是XMLHttpRquest   
+Jquery fetch 都是非同步 (底層:就是XMLHttpRquest)   
 
 但也可以用同步(但會阻塞)   
 
-
-需要長時間工作的包裝成非同步   
-
-牽扯到io讀取檔案或網路請求對cpu來說都是比較慢的事情   
+需要長時間工作的包裝成非同步,牽扯到io讀取檔案或網路請求對cpu來說都是比較慢的事情   
 
 可能會阻塞(同步請求會造成阻塞)   
 
@@ -67,17 +62,17 @@ Jquery fetch 都是非同步
 
 ---------------------------------------------------   
 
-# callback: 
-延續傳遞風格(Continuation-passing style, CPS)
-基本上一個程式語言要具有高階函式(High Order Function)的特性才能使用CPS風格，
-也就是可以把某個函式當作另一函式的傳入參數，也可以回傳函式。除了JavaScript語言外，
-具有高階函式特性的程式語言常見的有Python、Java、Ruby、Swift等等
+# callback:   
+延續傳遞風格(Continuation-passing style, CPS)   
+基本上一個程式語言要具有高階函式(High Order Function)的特性才能使用CPS風格，   
+也就是可以把某個函式當作另一函式的傳入參數，也可以回傳函式。除了JavaScript語言外，   
+具有高階函式特性的程式語言常見的有Python、Java、Ruby、Swift等等   
 
-非同步回調函式-
-使用計時器(timer)函式: setTimeout, setInterval
-特殊的函式: nextTick, setImmediate
-執行I/O: 監聽網路、資料庫查詢或讀寫外部資源
-訂閱事件
+非同步回調函式-   
+使用計時器(timer)函式: setTimeout, setInterval   
+特殊的函式: nextTick, setImmediate   
+執行I/O: 監聽網路、資料庫查詢或讀寫外部資源   
+訂閱事件   
 
 # 回調地獄(Callback Hell)
 複雜的情況是在於CPS風格使用callback(回調)來移往下一個函式執行，
