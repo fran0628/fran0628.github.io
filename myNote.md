@@ -30,8 +30,8 @@ oReq.send();
 ## 為什麼要有同源政策(CORS)?   
 
 主要安全性考量,例如來自於不同網域（domain）、通訊協定（protocol）或通訊埠（port）的資源時，會建立一個跨來源 HTTP 請求（cross-origin HTTP request）。   
-參考資料:
--[CORS跨來源資源共用](https://developer.mozilla.org/zh-TW/docs/Web/HTTP/CORS)
+參考資料:   
+- [CORS跨來源資源共用](https://developer.mozilla.org/zh-TW/docs/Web/HTTP/CORS)
 
 其他:   
 
@@ -100,8 +100,8 @@ console.log(response);
 console.log(error);   
 });   
 ```  
-參考資料: 
--[Axios的使用說明](https://codertw.com/%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80/691120/)
+參考資料:    
+- [Axios的使用說明](https://codertw.com/%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80/691120/)
  
 
 ---------------------------------------------------   
