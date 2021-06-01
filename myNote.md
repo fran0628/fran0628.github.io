@@ -20,10 +20,11 @@ php靠很多Process來做
 代價為是否阻塞下一行程式碼   
 
 
-甚麼是XHR?   
+## 甚麼是XHR?   
 
-XMLHttpRquest(瀏覽器物件) 發請求,三個參數 Method 網址列 同步/非同步:True/False   
 
+XMLHttpRquest(瀏覽器物件) 發請求,三個參數 Method 網址列 同步/非同步:True/False    
+```javascript
 function reqListener () {   
 
   console.log(this.responseText);   
@@ -37,16 +38,13 @@ oReq.addEventListener("load", reqListener);
 oReq.open("GET", "http://www.example.org/example.txt");   
 
 oReq.send();   
-
+```
 (或是也可以用.onload)   
 
-為什麼要有同源政策(CORS)?   
+## 為什麼要有同源政策(CORS)?   
 
 主要安全性考量,例如來自於不同網域（domain）、通訊協定（protocol）或通訊埠（port）的資源時，會建立一個跨來源 HTTP 請求（cross-origin HTTP request）。   
-
-參考文章:
-https://developer.mozilla.org/zh-TW/docs/Web/HTTP/CORS   
-
+[CORS](https://developer.mozilla.org/zh-TW/docs/Web/HTTP/CORS)
 
 其他:   
 
@@ -92,7 +90,8 @@ Axios是個基於promise的HTTP,可以用在browser & node.js
 從瀏覽器創建XMLHttpRequests   
 可轉換json資料格式   
 若無指定method,請求會使用get(default)   
-語法:   
+語法:
+```javascript   
 axios.get('URL')   
 .then(function (response) {   
 console.log(response);   
@@ -100,8 +99,10 @@ console.log(response);
 .catch(function (error) {   
 console.log(error);   
 });   
-
+```
 或是也可寫成下面形式   
+
+```javascript
 axios.get('URL', {   
 params: {   
 	 response: "json",   
@@ -115,9 +116,9 @@ console.log(response);
 .catch(function (error) {   
 console.log(error);   
 });   
-
-參考文章:   
-https://codertw.com/%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80/691120/   
+```   
+[Axios](https://codertw.com/%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80/691120/)
+ 
 
 ---------------------------------------------------   
 
@@ -140,7 +141,8 @@ Promise最大的好處是在非同步執行的流程中，有物件就可以串�
 # Async/await:   
 await 也能夠把 Promise 回傳的值接起來，   
 通常我們在呼叫 API（例如執行 fetch、axios）   
-搭配 axios 更可以這樣使用：   
+搭配 axios 更可以這樣使用：      
+```javascript
 ((async () => {   
     const { data } = await axios.get('API_URL');   
     console.log(data);   
@@ -148,7 +150,7 @@ await 也能夠把 Promise 回傳的值接起來，
 使用 async/await 呼叫 API 或是其他非同步方法，   
 不但可以避免 Callback Hell，   
 比起 Promise 更增加了程式可讀性   
-
+```   
 ---------------------------------------------------
 
 補充:   
