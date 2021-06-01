@@ -74,80 +74,80 @@ Jquery fetch 都是非同步 (底層:就是XMLHttpRquest)
 執行I/O: 監聽網路、資料庫查詢或讀寫外部資源   
 訂閱事件   
 
-# 回調地獄(Callback Hell)
-複雜的情況是在於CPS風格使用callback(回調)來移往下一個函式執行，
-當你開始撰寫一個接著一個執行的流程，
-也就是一個特定工作的函式呼叫後要接下一個特定工作的函式時，
-就會看到所謂的"回調地獄"的結構
+# 回調地獄(Callback Hell)   
+複雜的情況是在於CPS風格使用callback(回調)來移往下一個函式執行，   
+當你開始撰寫一個接著一個執行的流程，   
+也就是一個特定工作的函式呼叫後要接下一個特定工作的函式時，   
+就會看到所謂的"回調地獄"的結構   
 
-callback(回調)的函式名稱，可以用匿名函式取代。(實際上callback的名稱在除錯時很有用，可以在錯誤的堆疊上指示出來)
-callback(回調)因為是函式的定義，所以傳入參數value的名稱可以自己取。
-callback(回調)其實有Closure(閉包)結構的特性，可以獲取到func中的傳入參數，以及裡面的定義的值。
-(實際上JavaScript中只要函式建立就會有閉包產生)
+callback(回調)的函式名稱，可以用匿名函式取代。(實際上callback的名稱在除錯時很有用，可以在錯誤的堆疊上指示出來)   
+callback(回調)因為是函式的定義，所以傳入參數value的名稱可以自己取。   
+callback(回調)其實有Closure(閉包)結構的特性，可以獲取到func中的傳入參數，以及裡面的定義的值。   
+(實際上JavaScript中只要函式建立就會有閉包產生)   
 
 ---------------------------------------------------
 
-# axios:
-Axios是個基於promise的HTTP,可以用在browser & node.js
-從瀏覽器創建XMLHttpRequests
-可轉換json資料格式
-若無指定method,請求會使用get(default)
-語法:
-axios.get('URL')
-.then(function (response) {
-console.log(response);
-})
-.catch(function (error) {
-console.log(error);
-});
+# axios:   
+Axios是個基於promise的HTTP,可以用在browser & node.js   
+從瀏覽器創建XMLHttpRequests   
+可轉換json資料格式   
+若無指定method,請求會使用get(default)   
+語法:   
+axios.get('URL')   
+.then(function (response) {   
+console.log(response);   
+})   
+.catch(function (error) {   
+console.log(error);   
+});   
 
-或是也可寫成下面形式
-axios.get('URL', {
-params: {
-	 response: "json",
-     date: moment,
-     stockNo: data,
-}
-})
-.then(function (response) {
-console.log(response);
-})
-.catch(function (error) {
-console.log(error);  
-});
+或是也可寫成下面形式   
+axios.get('URL', {   
+params: {   
+	 response: "json",   
+     date: moment,   
+     stockNo: data,   
+}   
+})   
+.then(function (response) {   
+console.log(response);   
+})   
+.catch(function (error) {   
+console.log(error);   
+});   
 
-參考文章:
+參考文章:   
 https://codertw.com/%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80/691120/   
 
 ---------------------------------------------------   
 
-# Promise: 
-pending/resolve/rejected
-Promise最大的好處是在非同步執行的流程中，有物件就可以串接.then.catch
-把執行代碼和處理結果的代碼清晰地分離
+# Promise:    
+pending/resolve/rejected   
+Promise最大的好處是在非同步執行的流程中，有物件就可以串接.then.catch   
+把執行代碼和處理結果的代碼清晰地分離   
 
--promise重點是物件 所以要new一個物件 
-"最終" "完成或失敗" 的 "物件"
+-promise重點是物件 所以要new一個物件   
+"最終" "完成或失敗" 的 "物件"   
 
-參數固定 function resolve,reject 
-參數名稱(resolve,reject)也可自行命名 不過還是用常規寫法
-本質上還是非同步 但程式可以依序進行
-解決回調地獄（Callback Hell）問題
-基本語法-> new Promise(function (resolve, reject) {});
+參數固定 function resolve,reject    
+參數名稱(resolve,reject)也可自行命名 不過還是用常規寫法   
+本質上還是非同步 但程式可以依序進行   
+解決回調地獄（Callback Hell）問題   
+基本語法-> new Promise(function (resolve, reject) {});   
 
 ---------------------------------------------------
 
-# Async/await:
-await 也能夠把 Promise 回傳的值接起來，
-通常我們在呼叫 API（例如執行 fetch、axios）
-搭配 axios 更可以這樣使用：
-((async () => {
-    const { data } = await axios.get('API_URL');
-    console.log(data);
-})();
-使用 async/await 呼叫 API 或是其他非同步方法，
-不但可以避免 Callback Hell，
-比起 Promise 更增加了程式可讀性
+# Async/await:   
+await 也能夠把 Promise 回傳的值接起來，   
+通常我們在呼叫 API（例如執行 fetch、axios）   
+搭配 axios 更可以這樣使用：   
+((async () => {   
+    const { data } = await axios.get('API_URL');   
+    console.log(data);   
+})();   
+使用 async/await 呼叫 API 或是其他非同步方法，   
+不但可以避免 Callback Hell，   
+比起 Promise 更增加了程式可讀性   
 
 ---------------------------------------------------
 
