@@ -111,40 +111,8 @@ Promise最大的好處是在非同步執行的流程中，有物件就可以串�
 參數名稱(resolve,reject)也可自行命名 不過還是用常規寫法
 本質上還是非同步 但程式可以依序進行
 解決回調地獄（Callback Hell）問題
-語法:(使用上課練習為範本)
 基本語法-> new Promise(function (resolve, reject) {});
-let doWorkPromise = function (job, timer, success) {
-return new Promise((resolve, reject) => {
-  setTimeout(() => {
-    let dt = new Date();
-    if (success) {
-      // 成功
-      return resolve(`完成工作: ${job} at ${dt.toISOString()}`);
-    }
-    reject(`!!工作失敗: ${job} at ${dt.toISOString()}`);
-  }, timer);
-});
-};
-doWorkPromise("刷牙", 2000, true)
-.then((result) => {
-  // fulfilled 處理成功 resolve
-  console.log(result);
-  return doWorkPromise("吃早餐", 3000, false);
-})
-.then((result) => {
-  console.log(result);
-  return doWorkPromise("寫功課", 5000, true);
-})
-.then((result) => {
-  console.log(result);
-})
-.catch((err) => {
-  // rejected 處理失敗 reject
-  console.error("發生錯誤", err);
-})
-.finally(() => {
-  console.log("我是 Finally");
-});
+
 ---------------------------------------------------
 
 Async/await:
